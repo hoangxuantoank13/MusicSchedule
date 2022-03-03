@@ -5,9 +5,7 @@
  */
 package com.skedulo.musicschedule.object;
 
-import java.time.Instant;
 import java.time.ZonedDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 /**

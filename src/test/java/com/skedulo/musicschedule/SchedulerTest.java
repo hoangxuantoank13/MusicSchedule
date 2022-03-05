@@ -151,7 +151,6 @@ public class SchedulerTest {
 
     /**
      * 2 performances start in the same time, but difference finish time and
-     * priority
      */
     @Test
     public void testScheduleCase5() {
@@ -190,7 +189,6 @@ public class SchedulerTest {
     
     /**
      * 2 performances finish in the same time, but different start time and
-     * priority
      */
     @Test
     public void testScheduleCase6() {
@@ -229,7 +227,6 @@ public class SchedulerTest {
     
     /**
      * 2 performances happen in the same time and priority
-     * priority
      */
     @Test
     public void testScheduleCase7() {
@@ -262,7 +259,7 @@ public class SchedulerTest {
     
     /**
      * 2 performances that the higher priority performance overlap all the smaller priority performance
-     * priority
+     *
      */
     @Test
     public void testScheduleCase8() {

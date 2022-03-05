@@ -5,6 +5,7 @@
  */
 package com.skedulo.musicschedule.io;
 
+import com.skedulo.musicschedule.helper.TimeFormatter;
 import com.skedulo.musicschedule.object.Performance;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +30,7 @@ import org.json.JSONObject;
  */
 public class JSON implements Reader, Writer {
 
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+    
 
     @Override
     public List<Performance> read(String path) {
@@ -44,8 +45,8 @@ public class JSON implements Reader, Writer {
                     JSONObject performance = a.getJSONObject(i);
                     Performance p = new Performance(
                             performance.getString("band"),
-                            ZonedDateTime.parse(performance.getString("start"), formatter),
-                            ZonedDateTime.parse(performance.getString("finish"), formatter),
+                            ZonedDateTime.parse(performance.getString("start"), TimeFormatter.FORMATTER),
+                            ZonedDateTime.parse(performance.getString("finish"), TimeFormatter.FORMATTER),
                             performance.getInt("priority")
                     );
                     result.add(p);
@@ -63,9 +64,9 @@ public class JSON implements Reader, Writer {
         for (Performance p : list) {
             Map o = new LinkedHashMap();
 //            o.put("priority", p.getPriority());
-            o.put("start", formatter.format(p.getStart()));
+            o.put("start", TimeFormatter.FORMATTER.format(p.getStart()));
             o.put("band", p.getBand());
-            o.put("finish", formatter.format(p.getFinish()));
+            o.put("finish", TimeFormatter.FORMATTER.format(p.getFinish()));
             array.put(o);
         }
 
